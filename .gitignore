@@ -26,3 +26,4 @@ dist
 launch.json
 .hbuilderx
 pnpm-lock.yaml
+components.d.ts
