@@ -3,9 +3,7 @@
     <wd-card custom-style="margin-top: 20rpx" class="theme-card">
       <view class="flex-col-center py-lg">
         <text class="text-xl font-bold mb-md theme-text-primary">隐私政策</text>
-        <text class="text-sm theme-text-secondary"
-          >更新日期：2024年3月15日</text
-        >
+        <text class="text-sm theme-text-secondary">更新日期：2024年3月15日</text>
       </view>
     </wd-card>
 
@@ -17,17 +15,13 @@
         :name="String(index)"
       >
         <view class="py-md px-lg">
-          <text class="text-base leading-relaxed theme-text-secondary">{{
-            section.content
-          }}</text>
+          <text class="text-base leading-relaxed theme-text-secondary">{{ section.content }}</text>
         </view>
       </wd-collapse-item>
     </wd-collapse>
 
     <view class="mt-lg px-lg theme-card">
-      <wd-button type="primary" block @click="handleAgree"
-        >我已阅读并同意</wd-button
-      >
+      <wd-button type="primary" block @click="handleAgree">我已阅读并同意</wd-button>
     </view>
   </view>
 </template>

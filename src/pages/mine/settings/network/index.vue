@@ -16,9 +16,7 @@
             <text class="theme-text-primary">网络类型</text>
           </template>
           <template #value>
-            <text class="theme-text-secondary">{{
-              networkType || "未知"
-            }}</text>
+            <text class="theme-text-secondary">{{ networkType || "未知" }}</text>
           </template>
         </wd-cell>
         <wd-cell title="网络强度" :value="signalStrength">
@@ -47,9 +45,7 @@
             <text class="theme-text-primary">延迟</text>
           </template>
           <view class="flex items-center">
-            <text class="mr-md theme-text-secondary"
-              >{{ pingResult.delay }}ms</text
-            >
+            <text class="mr-md theme-text-secondary">{{ pingResult.delay }}ms</text>
             <wd-tag v-if="getPingStatus" :type="getPingStatusType">
               {{ pingResult.status }}
             </wd-tag>
@@ -65,13 +61,7 @@
         :color="'var(--primary-color)'"
       />
 
-      <wd-button
-        block
-        type="primary"
-        :loading="testing"
-        custom-class="test-btn"
-        @click="startTest"
-      >
+      <wd-button block type="primary" :loading="testing" custom-class="test-btn" @click="startTest">
         {{ testing ? "测试中..." : "开始测试" }}
       </wd-button>
     </wd-card>

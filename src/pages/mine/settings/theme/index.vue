@@ -1,8 +1,5 @@
 <template>
-  <view
-    :key="renderKey"
-    class="app-container dark:text-[var(--wot-dark-color)]"
-  >
+  <view :key="renderKey" class="app-container dark:text-[var(--wot-dark-color)]">
     <!-- 页面标题 -->
     <view class="page-header" :style="pageHeaderStyle">
       <text class="page-title">主题设置</text>
@@ -32,10 +29,7 @@
             :class="{ active: isActiveColor(color) }"
             @click="selectColor(color)"
           >
-            <view
-              class="color-preview"
-              :style="{ backgroundColor: color.primary }"
-            >
+            <view class="color-preview" :style="{ backgroundColor: color.primary }">
               <wd-icon
                 v-if="isActiveColor(color)"
                 name="check"
@@ -51,7 +45,7 @@
 
     <!-- 操作按钮 -->
     <view class="action-section">
-      <wd-button block @click="resetTheme"> 重置为默认主题 </wd-button>
+      <wd-button block @click="resetTheme">重置为默认主题</wd-button>
     </view>
   </view>
 </template>
@@ -136,7 +130,7 @@ watch(
   () => {
     // 主题变化时强制重新渲染
     renderKey.value++;
-  },
+  }
 );
 
 // 监听主题色变化
@@ -146,7 +140,7 @@ watch(
     // 强制重新渲染以更新选中状态
     renderKey.value++;
   },
-  { deep: true },
+  { deep: true }
 );
 
 // 监听主题色变量变化
@@ -158,7 +152,7 @@ watch(
 
     // 通知其他页面主题色已变化
     uni.$emit("global-theme-color-change", themeStore.themeVars.colorTheme);
-  },
+  }
 );
 </script>
 

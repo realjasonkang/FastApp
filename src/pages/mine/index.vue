@@ -13,12 +13,10 @@
         </view>
         <view class="user-details">
           <block v-if="isLogin">
-            <view class="nickname theme-text-primary">{{
-              userInfo?.name || "匿名用户"
-            }}</view>
-            <view class="user-id theme-text-secondary"
-              >ID: {{ userInfo?.username || "0000000" }}</view
-            >
+            <view class="nickname theme-text-primary">{{ userInfo?.name || "匿名用户" }}</view>
+            <view class="user-id theme-text-secondary">
+              ID: {{ userInfo?.username || "0000000" }}
+            </view>
           </block>
           <block v-else>
             <view class="login-prompt text-white">立即登录获取更多功能</view>
@@ -27,8 +25,9 @@
               size="small"
               type="primary"
               @click="navigateToLoginPage"
-              >登录/注册</wd-button
             >
+              登录/注册
+            </wd-button>
           </block>
         </view>
         <view class="actions">
@@ -77,9 +76,7 @@
       <view class="card-header">
         <view class="flex-start">
           <wd-icon name="tools" size="18" :color="themeVars.colorTheme" />
-          <text class="theme-text-secondary ml-12rpx text-28rpx font-600"
-            >常用工具</text
-          >
+          <text class="theme-text-secondary ml-12rpx text-28rpx font-600">常用工具</text>
         </view>
       </view>
       <view class="flex flex-wrap p-20rpx pt-20rpx pb-10rpx">
@@ -91,31 +88,19 @@
         </view>
         <view class="tool-item" @click="navigateToFAQ">
           <view class="tool-icon">
-            <wd-icon
-              name="help-circle"
-              size="24"
-              :color="currentThemeColor.primary"
-            />
+            <wd-icon name="help-circle" size="24" :color="currentThemeColor.primary" />
           </view>
           <view class="theme-text-secondary text-24rpx">常见问题</view>
         </view>
         <view class="tool-item" @click="handleQuestionFeedback">
           <view class="tool-icon">
-            <wd-icon
-              name="check-circle"
-              size="24"
-              :color="currentThemeColor.primary"
-            />
+            <wd-icon name="check-circle" size="24" :color="currentThemeColor.primary" />
           </view>
           <view class="theme-text-secondary text-24rpx">问题反馈</view>
         </view>
         <view class="tool-item" @click="navigateToAbout">
           <view class="tool-icon">
-            <wd-icon
-              name="info-circle"
-              size="24"
-              :color="currentThemeColor.primary"
-            />
+            <wd-icon name="info-circle" size="24" :color="currentThemeColor.primary" />
           </view>
           <view class="theme-text-secondary text-24rpx">关于我们</view>
         </view>
@@ -127,53 +112,32 @@
       <view class="card-header">
         <view class="flex-start">
           <wd-icon name="star" size="18" :color="currentThemeColor.primary" />
-          <text class="theme-text-secondary ml-12rpx text-28rpx font-600"
-            >推荐服务</text
-          >
+          <text class="theme-text-secondary ml-12rpx text-28rpx font-600">推荐服务</text>
         </view>
       </view>
       <view>
-        <view
-          class="service-item"
-          @click="navigateToSection('services', 'vip')"
-        >
+        <view class="service-item" @click="navigateToSection('services', 'vip')">
           <view class="flex-start">
             <view class="service-icon">
-              <wd-icon
-                name="dong"
-                size="22"
-                :color="currentThemeColor.primary"
-              />
+              <wd-icon name="dong" size="22" :color="currentThemeColor.primary" />
             </view>
             <view>
-              <view class="theme-text-secondary text-28rpx font-500"
-                >会员中心</view
-              >
+              <view class="theme-text-secondary text-28rpx font-500">会员中心</view>
               <view class="mt-8rpx text-24rpx text-gray-500">解锁更多特权</view>
             </view>
           </view>
           <wd-icon name="arrow-right" size="14" />
         </view>
-        <view
-          class="service-item"
-          @click="navigateToSection('services', 'coupon')"
-        >
+        <view class="service-item" @click="navigateToSection('services', 'coupon')">
           <view class="flex-start">
             <view class="service-icon">
-              <wd-icon
-                name="discount"
-                size="22"
-                :color="currentThemeColor.primary"
-              />
+              <wd-icon name="discount" size="22" :color="currentThemeColor.primary" />
             </view>
             <view>
-              <view
-                class="theme-text-secondary text-28rpx font-500 text-28rpx font-500"
-                >优惠券</view
-              >
-              <view class="mt-8rpx text-24rpx text-gray-500"
-                >查看我的优惠券</view
-              >
+              <view class="theme-text-secondary text-28rpx font-500 text-28rpx font-500">
+                优惠券
+              </view>
+              <view class="mt-8rpx text-24rpx text-gray-500">查看我的优惠券</view>
             </view>
           </view>
           <wd-icon name="arrow-right" size="14" />
@@ -184,20 +148,13 @@
         >
           <view class="flex-start">
             <view class="service-icon">
-              <wd-icon
-                name="share"
-                size="22"
-                :color="currentThemeColor.primary"
-              />
+              <wd-icon name="share" size="22" :color="currentThemeColor.primary" />
             </view>
             <view>
-              <view
-                class="theme-text-secondary text-28rpx font-500 text-28rpx font-500"
-                >邀请有礼</view
-              >
-              <view class="mt-8rpx text-24rpx text-gray-500"
-                >邀请好友得奖励</view
-              >
+              <view class="theme-text-secondary text-28rpx font-500 text-28rpx font-500">
+                邀请有礼
+              </view>
+              <view class="mt-8rpx text-24rpx text-gray-500">邀请好友得奖励</view>
             </view>
           </view>
           <wd-icon name="arrow-right" size="14" />
@@ -207,9 +164,7 @@
 
     <!-- 退出登录按钮 -->
     <view v-if="isLogin" class="p-30rpx">
-      <wd-button custom-class="logout-button" plain @click="handleLogout"
-        >退出登录</wd-button
-      >
+      <wd-button custom-class="logout-button" plain @click="handleLogout">退出登录</wd-button>
     </view>
     <wd-toast />
   </view>
@@ -439,7 +394,7 @@ watch(
   {
     deep: true,
     immediate: true,
-  },
+  }
 );
 </script>
 
@@ -470,11 +425,7 @@ watch(
     left: 0;
     z-index: 0;
     height: 240rpx;
-    background: linear-gradient(
-      135deg,
-      var(--wot-color-theme, #165dff) 0%,
-      #667eea 100%
-    );
+    background: linear-gradient(135deg, var(--wot-color-theme, #165dff) 0%, #667eea 100%);
   }
 
   .user-info {

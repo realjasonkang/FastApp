@@ -19,12 +19,8 @@
             <wd-icon :name="item.icon" size="24" :color="item.color" />
           </view>
           <view class="stats-content">
-            <text class="stats-number theme-text-primary">{{
-              item.number
-            }}</text>
-            <text class="stats-label theme-text-secondary">{{
-              item.label
-            }}</text>
+            <text class="stats-number theme-text-primary">{{ item.number }}</text>
+            <text class="stats-label theme-text-secondary">{{ item.label }}</text>
           </view>
         </view>
       </view>
@@ -56,8 +52,7 @@
           :label="activity.label"
           :value="activity.value"
           custom-class="activity-cell"
-        >
-        </wd-cell>
+        ></wd-cell>
       </wd-cell-group>
     </wd-card>
   </view>
@@ -131,11 +126,7 @@ const handleActionClick = (action: QuickAction) => {
   margin-bottom: 30rpx;
   text-align: center;
   // 使用与"我的"页面相同的渐变背景
-  background: linear-gradient(
-    135deg,
-    var(--wot-color-theme, #165dff) 0%,
-    #667eea 100%
-  );
+  background: linear-gradient(135deg, var(--wot-color-theme, #165dff) 0%, #667eea 100%);
   border-radius: 16rpx;
 
   .page-title {

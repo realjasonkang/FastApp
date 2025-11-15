@@ -136,9 +136,7 @@ export function useStomp(options: UseStompOptions = {}) {
 
       // 如果是授权问题导致的关闭，尝试重连
       if (
-        (event?.code === 1000 ||
-          event?.code === 1006 ||
-          event?.code === 1008) &&
+        (event?.code === 1000 || event?.code === 1006 || event?.code === 1008) &&
         reconnectCount.value < maxReconnectAttempts
       ) {
         console.log("检测到连接异常关闭，将尝试重连");
@@ -185,10 +183,7 @@ export function useStomp(options: UseStompOptions = {}) {
 
     // 使用指数退避策略增加重连间隔
     const delay = useExponentialBackoff
-      ? Math.min(
-          reconnectDelay * Math.pow(2, reconnectCount.value - 1),
-          maxReconnectDelay,
-        )
+      ? Math.min(reconnectDelay * Math.pow(2, reconnectCount.value - 1), maxReconnectDelay)
       : reconnectDelay;
 
     // 清除之前的计时器
@@ -265,10 +260,7 @@ export function useStomp(options: UseStompOptions = {}) {
       if (!isConnected.value && isConnecting) {
         console.warn("WebSocket连接超时");
         isConnecting = false;
-        if (
-          !isManualDisconnect &&
-          reconnectCount.value < maxReconnectAttempts
-        ) {
+        if (!isManualDisconnect && reconnectCount.value < maxReconnectAttempts) {
           handleReconnect();
         }
       }
@@ -289,10 +281,7 @@ export function useStomp(options: UseStompOptions = {}) {
    * @param callback 接收到消息时的回调函数
    * @returns 返回订阅 id，用于后续取消订阅
    */
-  const subscribe = (
-    destination: string,
-    callback: (_message: IMessage) => void,
-  ): string => {
+  const subscribe = (destination: string, callback: (_message: IMessage) => void): string => {
     if (!client.value || !client.value.connected) {
       console.warn(`尝试订阅 ${destination} 失败: 客户端未连接`);
       return "";

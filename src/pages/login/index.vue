@@ -1,11 +1,7 @@
 <template>
   <view class="app-container">
     <!-- 背景图 -->
-    <image
-      src="/static/images/login-bg.svg"
-      mode="aspectFill"
-      class="login-bg"
-    />
+    <image src="/static/images/login-bg.svg" mode="aspectFill" class="login-bg" />
 
     <!-- Logo和标题区域 -->
     <view class="header">
@@ -17,19 +13,10 @@
     <view class="login-card theme-card">
       <view class="form-wrap">
         <!-- 账号密码登录表单 -->
-        <wd-form
-          v-if="loginType === 'account'"
-          ref="loginFormRef"
-          :model="loginFormData"
-        >
+        <wd-form v-if="loginType === 'account'" ref="loginFormRef" :model="loginFormData">
           <!-- 用户名输入框 -->
           <view class="form-item">
-            <wd-icon
-              name="user"
-              size="22"
-              :color="themeVars.darkColor3"
-              class="input-icon"
-            />
+            <wd-icon name="user" size="22" :color="themeVars.darkColor3" class="input-icon" />
             <wd-input
               v-model="loginFormData.username"
               type="text"
@@ -44,12 +31,7 @@
 
           <!-- 密码输入框 -->
           <view class="form-item">
-            <wd-icon
-              name="lock-on"
-              size="22"
-              :color="themeVars.darkColor3"
-              class="input-icon"
-            />
+            <wd-icon name="lock-on" size="22" :color="themeVars.darkColor3" class="input-icon" />
             <wd-input
               v-model="loginFormData.password"
               class="form-input input-transparent"
@@ -59,20 +41,13 @@
               placeholder="请输入密码"
               clear-trigger="focus"
               clearable
-              :rules="[
-                { required: true, message: '请输入密码', trigger: 'blur' },
-              ]"
+              :rules="[{ required: true, message: '请输入密码', trigger: 'blur' }]"
             />
           </view>
 
           <!-- 验证码输入框 -->
           <view v-if="captchaState.enable" class="form-item">
-            <wd-icon
-              name="lock-on"
-              size="22"
-              :color="themeVars.darkColor3"
-              class="input-icon"
-            />
+            <wd-icon name="lock-on" size="22" :color="themeVars.darkColor3" class="input-icon" />
             <wd-input
               v-model="loginFormData.captcha"
               class="form-input input-transparent captcha-input"
@@ -81,9 +56,7 @@
               placeholder="请输入验证码"
               clear-trigger="focus"
               clearable
-              :rules="[
-                { required: true, message: '请输入验证码', trigger: 'blur' },
-              ]"
+              :rules="[{ required: true, message: '请输入验证码', trigger: 'blur' }]"
             />
             <wd-img
               :src="captchaState.img_base"
@@ -119,20 +92,14 @@
           <!-- 切换登录方式 -->
           <view class="switch-login-type" @click="loginType = 'phone'">
             <text class="text-primary">使用手机号一键登录</text>
-            <wd-icon
-              name="arrow-right"
-              size="12"
-              :color="themeVars.colorTheme"
-            />
+            <wd-icon name="arrow-right" size="12" :color="themeVars.colorTheme" />
           </view>
         </wd-form>
 
         <!-- 手机号登录 -->
         <view v-else class="phone-login-form">
           <view class="phone-login-title theme-text-primary">微信一键登录</view>
-          <view class="phone-login-subtitle theme-text-secondary"
-            >授权后将获取您的手机号</view
-          >
+          <view class="phone-login-subtitle theme-text-secondary">授权后将获取您的手机号</view>
 
           <wd-button
             class="wechat-phone-btn"
@@ -148,11 +115,7 @@
           <!-- 切换登录方式 -->
           <view class="switch-login-type" @click="loginType = 'account'">
             <text class="text-primary">使用账号密码登录</text>
-            <wd-icon
-              name="arrow-right"
-              size="12"
-              :color="themeVars.colorTheme"
-            />
+            <wd-icon name="arrow-right" size="12" :color="themeVars.colorTheme" />
           </view>
         </view>
 
@@ -174,21 +137,10 @@
         <!-- 底部协议 -->
         <view class="agreement">
           <wd-checkbox v-model="loginFormData.remember">
-            <wd-text
-              text="我已阅读并同意"
-              class="theme-text-secondary"
-            ></wd-text>
-            <wd-text
-              type="primary"
-              text="《用户协议》"
-              @click="navigateToUserAgreement"
-            ></wd-text>
+            <wd-text text="我已阅读并同意" class="theme-text-secondary"></wd-text>
+            <wd-text type="primary" text="《用户协议》" @click="navigateToUserAgreement"></wd-text>
             <wd-text text="和" class="theme-text-secondary"></wd-text>
-            <wd-text
-              type="primary"
-              text="《隐私政策》"
-              @click="navigateToPrivacy"
-            ></wd-text>
+            <wd-text type="primary" text="《隐私政策》" @click="navigateToPrivacy"></wd-text>
           </wd-checkbox>
         </view>
       </view>
@@ -209,8 +161,7 @@ import { computed, ref, reactive } from "vue";
 // 主题相关
 const themeStore = useThemeStore();
 const themeVars = computed(
-  () =>
-    themeStore.themeVars || { darkColor3: "#a0a0a0", colorTheme: "#4D7FFF" },
+  () => themeStore.themeVars || { darkColor3: "#a0a0a0", colorTheme: "#4D7FFF" }
 );
 
 const loginFormRef = ref();
@@ -242,11 +193,7 @@ const isCaptchaLoading = ref(false);
 // 表单验证
 const isFormValid = computed(() => {
   const { username, password, captcha } = loginFormData.value;
-  return !!(
-    username?.trim() &&
-    password &&
-    (!captchaState.enable || (captcha && captcha.trim()))
-  );
+  return !!(username?.trim() && password && (!captchaState.enable || (captcha && captcha.trim())));
 });
 
 // 获取验证码
@@ -344,8 +291,7 @@ const redirect = ref("/pages/index/index");
 onLoad((options) => {
   uni.setNavigationBarTitle({ title: "登录" });
   getLoginCaptcha();
-  const fromQuery =
-    options && options.redirect ? decodeURIComponent(options.redirect) : "";
+  const fromQuery = options && options.redirect ? decodeURIComponent(options.redirect) : "";
   if (fromQuery && fromQuery !== "/pages/login/index") {
     redirect.value = fromQuery;
   }

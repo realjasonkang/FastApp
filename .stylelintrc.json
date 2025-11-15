@@ -2,44 +2,54 @@
   "extends": [
     "stylelint-config-recommended",
     "stylelint-config-recommended-scss",
-    "stylelint-config-recommended-vue",
-    "stylelint-config-recess-order",
-    "stylelint-config-html",
-    "stylelint-prettier/recommended"
+    "stylelint-config-recommended-vue/scss",
+    "stylelint-config-html/vue",
+    "stylelint-config-recess-order"
   ],
+  "plugins": ["stylelint-prettier"],
+  "overrides": [
+    {
+      "files": ["**/*.{vue,html}"],
+      "customSyntax": "postcss-html"
+    },
+    {
+      "files": ["**/*.{css,scss}"],
+      "customSyntax": "postcss-scss"
+    }
+  ],
+
   "rules": {
-    "prettier/prettier": true,
-    "unit-no-unknown": [
+    "import-notation": "string",
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "keyframes-name-pattern": null,
+    "no-descending-specificity": null,
+    "no-empty-source": null,
+    "declaration-property-value-no-unknown": null,
+    "unit-no-unknown": null,
+    "selector-type-no-unknown": [
       true,
-      { "ignoreUnits": ["rpx"] }
+      {
+        "ignoreTypes": ["page"]
+      }
     ],
     "selector-pseudo-class-no-unknown": [
       true,
-      { "ignorePseudoClasses": ["deep", "global"] }
+      {
+        "ignorePseudoClasses": ["global", "export", "deep"]
+      }
     ],
-    "selector-type-no-unknown": [
+    "property-no-unknown": [
       true,
-      { "ignoreTypes": ["page", "view", "text", "image", "button"] }
+      {
+        "ignoreProperties": []
+      }
     ],
-    "declaration-property-value-no-unknown": null,
-    "no-descending-specificity": null,
-    "no-empty-source": null
-  },
-  "ignoreFiles": [
-    "**/*.js",
-    "**/*.ts",
-    "**/*.json",
-    "**/*.wxml",
-    "**/*.wxss",
-    "**/*.nvue",
-    "**/node_modules/**",
-    "**/dist/**",
-    "**/unpackage/**"
-  ],
-  "overrides": [
-    {
-      "files": ["*.vue", "**/*.vue", "*.html", "**/*.html"],
-      "customSyntax": "postcss-html"
-    }
-  ]
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["apply", "use", "forward"]
+      }
+    ]
+  }
 }

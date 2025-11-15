@@ -1,8 +1,6 @@
 <template>
   <view class="app-container">
-    <wd-text size="small" class="theme-text-secondary"
-      >选填，最多上传3张图片</wd-text
-    >
+    <wd-text size="small" class="theme-text-secondary">选填，最多上传3张图片</wd-text>
     <wd-form ref="formRef" :model="formData" :rules="rules" errorType="toast">
       <!-- 问题类型选择 -->
       <wd-cell-group title="问题类型" custom-class="theme-card mt-md">
@@ -38,9 +36,9 @@
       <!-- 相关截图 -->
       <wd-cell-group title="相关截图" custom-class="theme-card mt-md">
         <view class="p-md">
-          <wd-text size="small" custom-class="theme-text-secondary mb-sm"
-            >选填，最多上传3张图片</wd-text
-          >
+          <wd-text size="small" custom-class="theme-text-secondary mb-sm">
+            选填，最多上传3张图片
+          </wd-text>
           <wd-upload
             v-model="formData.fileList"
             :max-count="3"
@@ -59,9 +57,9 @@
             placeholder="请输入您的手机号或邮箱"
             clearable
           />
-          <wd-text size="small" custom-class="theme-text-secondary mt-sm"
-            >选填，便于我们与您联系</wd-text
-          >
+          <wd-text size="small" custom-class="theme-text-secondary mt-sm">
+            选填，便于我们与您联系
+          </wd-text>
         </view>
       </wd-cell-group>
 
@@ -74,8 +72,9 @@
           block
           custom-class="submit-btn"
           @click="handleSubmit"
-          >提交反馈</wd-button
         >
+          提交反馈
+        </wd-button>
       </view>
     </wd-form>
   </view>

@@ -6,10 +6,7 @@ import type { NavItem, VisitStatsVO } from "./types";
 /**
  * 轮播图列表
  */
-export const SWIPER_LIST = [
-  "/static/images/banner01.jpg",
-  "/static/images/banner02.jpg",
-];
+export const SWIPER_LIST = ["/static/images/banner01.jpg", "/static/images/banner02.jpg"];
 
 /**
  * 快捷导航列表

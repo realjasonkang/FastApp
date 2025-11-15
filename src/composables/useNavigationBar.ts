@@ -20,11 +20,9 @@ export function useNavigationBar() {
         if (!themeVars) return;
 
         const navBar = document.querySelector(".uni-page-head") as HTMLElement;
-        const navTitle = document.querySelector(
-          ".uni-page-head__title",
-        ) as HTMLElement;
+        const navTitle = document.querySelector(".uni-page-head__title") as HTMLElement;
         const navBtns = Array.from(
-          document.querySelectorAll(".uni-page-head__btn"),
+          document.querySelectorAll(".uni-page-head__btn")
         ) as HTMLElement[];
 
         // 根据主题模式获取颜色值
@@ -79,15 +77,19 @@ export function useNavigationBar() {
               const htmlEl = el as HTMLElement;
               // 设置容器本身
               htmlEl.style.setProperty("color", navTextColor, "important");
-              
+
               // 设置所有子元素（包括SVG）
               const allChildren = htmlEl.querySelectorAll("*");
               allChildren.forEach((child) => {
                 const childEl = child as HTMLElement;
                 childEl.style.setProperty("color", navTextColor, "important");
-                
+
                 // SVG元素需要设置fill和stroke
-                if (["svg", "path", "g", "circle", "rect", "line", "polyline", "polygon"].includes(child.tagName.toLowerCase())) {
+                if (
+                  ["svg", "path", "g", "circle", "rect", "line", "polyline", "polygon"].includes(
+                    child.tagName.toLowerCase()
+                  )
+                ) {
                   childEl.style.setProperty("fill", navTextColor, "important");
                   childEl.style.setProperty("stroke", navTextColor, "important");
                 }
@@ -95,12 +97,15 @@ export function useNavigationBar() {
             });
           } catch (e) {
             // 忽略选择器错误
+            console.debug(`未找到导航栏返回按钮的元素（${e}）`);
           }
         });
 
         // 方法2: 直接查找导航栏内的第一个可点击元素（通常是返回按钮）
         if (navBar) {
-          const firstClickable = navBar.querySelector("a, button, [onclick], [class*='btn'], [class*='back'], [class*='left']");
+          const firstClickable = navBar.querySelector(
+            "a, button, [onclick], [class*='btn'], [class*='back'], [class*='left']"
+          );
           if (firstClickable) {
             const el = firstClickable as HTMLElement;
             el.style.setProperty("color", navTextColor, "important");
@@ -133,7 +138,7 @@ export function useNavigationBar() {
       () => themeStore.isDark,
       () => {
         setNavigationBarStyle();
-      },
+      }
     );
     // #endif
   };

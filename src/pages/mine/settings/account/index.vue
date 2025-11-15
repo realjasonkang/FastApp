@@ -13,9 +13,7 @@
             <text class="theme-text-primary">账户密码</text>
           </template>
           <template #label>
-            <text class="theme-text-secondary"
-              >定期修改密码有助于保护账户安全</text
-            >
+            <text class="theme-text-secondary">定期修改密码有助于保护账户安全</text>
           </template>
           <template #value>
             <text class="theme-text-secondary">修改</text>
@@ -79,9 +77,7 @@
           />
         </wd-cell-group>
         <view class="p-6">
-          <wd-button type="primary" size="large" block @click="handleSubmit"
-            >提交</wd-button
-          >
+          <wd-button type="primary" size="large" block @click="handleSubmit">提交</wd-button>
         </view>
       </wd-form>
     </wd-popup>
@@ -194,23 +190,21 @@ const handleOpenDialog = (type: DialogType) => {
 // 提交表单
 function handleSubmit() {
   if (dialog.type === DialogType.PASSWORD) {
-    passwordChangeFormRef.value
-      .validate()
-      .then(({ valid }: { valid: boolean }) => {
-        if (valid) {
-          UserAPI.changeCurrentUserPassword(passwordChangeForm)
-            .then(() => {
-              uni.showToast({ title: "密码修改成功", icon: "success" });
-              dialog.visible = false;
-            })
-            .catch((error: any) => {
-              uni.showToast({
-                title: error?.message || "密码修改失败",
-                icon: "error",
-              });
+    passwordChangeFormRef.value.validate().then(({ valid }: { valid: boolean }) => {
+      if (valid) {
+        UserAPI.changeCurrentUserPassword(passwordChangeForm)
+          .then(() => {
+            uni.showToast({ title: "密码修改成功", icon: "success" });
+            dialog.visible = false;
+          })
+          .catch((error: any) => {
+            uni.showToast({
+              title: error?.message || "密码修改失败",
+              icon: "error",
             });
-        }
-      });
+          });
+      }
+    });
   }
 }
 

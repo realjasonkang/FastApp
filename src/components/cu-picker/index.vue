@@ -35,16 +35,14 @@ const emits = defineEmits(["update:modelValue"]);
 
 // 定义响应式变量
 const selectedValues = ref<number[] | string[]>([]);
-const pickerColumns = ref<
-  Array<Array<{ label: string; value: string | number }>>
->([]);
+const pickerColumns = ref<Array<Array<{ label: string; value: string | number }>>>([]);
 
 // 监听 modelValue 的变化，更新 selectedValues
 watch(
   () => props.modelValue,
   (val) => {
     selectedValues.value = val ? findTreePath(val) : [];
-  },
+  }
 );
 
 /**
@@ -60,15 +58,11 @@ const findTreePath = (value: number | string): number[] | string[] => {
   const find = (value: number | string, list: OptionType[]): boolean => {
     for (const item of list) {
       if (item.value === value) {
-        typeof value === "number"
-          ? numberPath.push(value)
-          : stringPath.push(value);
+        typeof value === "number" ? numberPath.push(value) : stringPath.push(value);
         return true;
       }
       if (item.children?.length) {
-        typeof item.value === "number"
-          ? numberPath.push(item.value)
-          : stringPath.push(item.value);
+        typeof item.value === "number" ? numberPath.push(item.value) : stringPath.push(item.value);
         if (find(value, item.children)) return true;
         typeof item.value === "number" ? numberPath.pop() : stringPath.pop();
       }
@@ -87,7 +81,7 @@ const findTreePath = (value: number | string): number[] | string[] => {
  * @returns Picker 所需的 columns 格式
  */
 const transformTreeToColumns = (
-  treeData: OptionType[],
+  treeData: OptionType[]
 ): Array<Array<{ label: string; value: string | number }>> => {
   const columns: Array<Array<{ label: string; value: string | number }>> = [];
 
@@ -104,9 +98,7 @@ const transformTreeToColumns = (
     }
 
     columns.push(currentColumn);
-    const selectedNode = treeData.find(
-      (node) => node.value == selectedValues.value[depth],
-    );
+    const selectedNode = treeData.find((node) => node.value == selectedValues.value[depth]);
     treeData = selectedNode?.children || [];
   }
 
@@ -122,7 +114,7 @@ watch(
   },
   {
     immediate: true,
-  },
+  }
 );
 
 /**
@@ -132,10 +124,9 @@ function handleColumnChange(
   pickerView: PickerViewInstance,
   value: Record<string, any> | Record<string, any>[],
   columnIndex: number,
-  resolve: () => void,
+  resolve: () => void
 ) {
-  const selectedValue =
-    selectedValues.value[selectedValues.value.length - 1] || undefined;
+  const selectedValue = selectedValues.value[selectedValues.value.length - 1] || undefined;
   emits("update:modelValue", selectedValue);
 
   const item = Array.isArray(value) ? value[columnIndex] : value.value;
@@ -149,7 +140,7 @@ function handleColumnChange(
 function updatePickerColumns(
   pickerView: PickerViewInstance,
   parentId: string | number,
-  columnIndex: number,
+  columnIndex: number
 ) {
   const nextColumnIndex = columnIndex + 1;
   const children = findChildren(parentId, props.data);
@@ -165,7 +156,7 @@ function updatePickerColumns(
  */
 function findChildren(
   parentId: string | number,
-  list: Record<string, any>[],
+  list: Record<string, any>[]
 ): Record<string, any>[] {
   for (const item of list) {
     if (item.value === parentId && item.children) {

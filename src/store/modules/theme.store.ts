@@ -44,8 +44,7 @@ function useUniStorage<T>(key: string, defaultValue: T): Ref<T> {
       if (stored !== "" && stored !== null && stored !== undefined) {
         // 尝试解析 JSON，如果失败则直接使用原始值
         try {
-          initialValue =
-            typeof stored === "string" ? JSON.parse(stored) : (stored as T);
+          initialValue = typeof stored === "string" ? JSON.parse(stored) : (stored as T);
         } catch {
           // 如果 JSON 解析失败，可能是简单类型，直接使用
           initialValue = stored as T;
@@ -83,7 +82,7 @@ function useUniStorage<T>(key: string, defaultValue: T): Ref<T> {
         console.warn(`保存存储失败 [${key}]:`, error);
       }
     },
-    { deep: true }, // 深度监听，支持对象和数组
+    { deep: true } // 深度监听，支持对象和数组
   );
 
   return state;
@@ -104,7 +103,7 @@ export const useThemeStore = defineStore("appTheme", () => {
   const theme = useUniStorage<ThemeMode>("app-theme", "dark");
   const currentThemeColor = useUniStorage<ThemeColorOption>(
     "app-theme-color",
-    themeColorOptions[0],
+    themeColorOptions[0]
   );
 
   // 获取当前主题的基础颜色配置

@@ -44,10 +44,7 @@ watch(
         !isNaN(new Date(startDate).getTime()) &&
         !isNaN(new Date(endDate).getTime())
       ) {
-        dateRange.value = [
-          new Date(startDate).getTime(),
-          new Date(endDate).getTime(),
-        ];
+        dateRange.value = [new Date(startDate).getTime(), new Date(endDate).getTime()];
       } else {
         dateRange.value = null;
       }
@@ -57,7 +54,7 @@ watch(
   },
   {
     immediate: true,
-  },
+  }
 );
 
 // 确认选择时间

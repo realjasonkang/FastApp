@@ -31,17 +31,17 @@ FastApp 是 FastapiAdmin 项目的移动端应用，基于 uni-app 框架开发�
 
 ## 🔗 源码仓库
 
-| 平台 | 仓库地址 |
-|------|----------|
+| 平台       | 仓库地址                                                                                                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **GitHub** | [FastapiAdmin主工程](https://github.com/1014TaoTao/FastapiAdmin.git) \| [FastDocs官网](https://github.com/1014TaoTao/FastDocs.git) \| [FastApp移动端](https://github.com/1014TaoTao/FastApp.git) |
-| **Gitee**  | [FastapiAdmin主工程](https://gitee.com/tao__tao/FastapiAdmin.git) \| [FastDocs官网](https://gitee.com/tao__tao/FastDocs.git) \| [FastApp移动端](https://gitee.com/tao__tao/FastApp.git) |
+| **Gitee**  | [FastapiAdmin主工程](https://gitee.com/tao__tao/FastapiAdmin.git) \| [FastDocs官网](https://gitee.com/tao__tao/FastDocs.git) \| [FastApp移动端](https://gitee.com/tao__tao/FastApp.git)          |
 
 ## 📸 项目截图
 
-| 模块 | 详情 | 模块 | 详情 | 模块 | 详情 |
-|------|------|------|------|------|------|
-| **登录** | ![移动端登录](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_login.png) | **首页** | ![移动端首页](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_home.png) | **我的** | ![移动端个人中心](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_mine.png) |
-| **个人** | ![移动端个人信息](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_profile.png) | **设置** | ![移动端设置](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_setting.png) | **工作台** | ![移动端工作台](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_work.png) |
+| 模块     | 详情                                                                                       | 模块     | 详情                                                                                   | 模块       | 详情                                                                                    |
+| -------- | ------------------------------------------------------------------------------------------ | -------- | -------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| **登录** | ![移动端登录](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_login.png)       | **首页** | ![移动端首页](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_home.png)    | **我的**   | ![移动端个人中心](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_mine.png) |
+| **个人** | ![移动端个人信息](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_profile.png) | **设置** | ![移动端设置](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_setting.png) | **工作台** | ![移动端工作台](https://gitee.com/tao__tao/FastDocs/raw/main/src/public/app_work.png)   |
 
 ## ✨ 功能特性
 
@@ -72,7 +72,6 @@ FastApp 是 FastapiAdmin 项目的移动端应用，基于 uni-app 框架开发�
 - **[TypeScript](https://www.typescriptlang.org/)** - JavaScript 的超集，提供类型支持
 - **[Vite](https://cn.vitejs.dev/)** - 下一代前端构建工具
 
-
 ### 工具库
 
 - **[UnoCSS](https://unocss.dev/)** - 原子化 CSS 引擎
@@ -90,7 +89,7 @@ FastApp 是 FastapiAdmin 项目的移动端应用，基于 uni-app 框架开发�
 
 ## 📁 项目结构
 
-```
+```bash
 FastApp/
 ├── public/                 # 静态资源目录
 ├── src/
@@ -158,7 +157,6 @@ pnpm run build:h5
 # 构建产物在 dist/build/h5 目录
 ```
 
-
 ## 📝 开发指南
 
 ### 代码规范
@@ -215,16 +213,16 @@ export default defineUniPages({
 使用 Pinia 进行状态管理，store 文件位于 `src/store` 目录：
 
 ```typescript
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
 
-export const useUserStore = defineStore('user', {
+export const useUserStore = defineStore("user", {
   state: () => ({
     // 状态
   }),
   actions: {
     // 方法
-  }
-})
+  },
+});
 ```
 
 ### 样式开发

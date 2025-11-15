@@ -47,15 +47,7 @@ const cfe = {
     "demotype",
   ],
   //增加自定义图表类型，如果需要categories，请在这里加入您的图表类型例如最后的"demotype"
-  categories: [
-    "line",
-    "column",
-    "area",
-    "radar",
-    "gauge",
-    "candle",
-    "demotype",
-  ],
+  categories: ["line", "column", "area", "radar", "gauge", "candle", "demotype"],
   //instance为实例变量承载属性，option为eopts承载属性，不要删除
   instance: {},
   option: {},
@@ -76,8 +68,7 @@ const cfe = {
         // #endif
 
         // #ifdef APP-PLUS
-        result +=
-          "<br/>" + res[i].marker + res[i].seriesName + "：" + value + " 万元";
+        result += "<br/>" + res[i].marker + res[i].seriesName + "：" + value + " 万元";
         // #endif
       }
       return result;

@@ -196,11 +196,7 @@ function deepCloneAssign(origin = {}, ...args) {
       if (args[i].hasOwnProperty(key)) {
         origin[key] =
           args[i][key] && typeof args[i][key] === "object"
-            ? deepCloneAssign(
-                Array.isArray(args[i][key]) ? [] : {},
-                origin[key],
-                args[i][key],
-              )
+            ? deepCloneAssign(Array.isArray(args[i][key]) ? [] : {}, origin[key], args[i][key])
             : args[i][key];
       }
     }
@@ -210,16 +206,10 @@ function deepCloneAssign(origin = {}, ...args) {
 
 function formatterAssign(args, formatter) {
   for (let key in args) {
-    if (
-      args.hasOwnProperty(key) &&
-      args[key] !== null &&
-      typeof args[key] === "object"
-    ) {
+    if (args.hasOwnProperty(key) && args[key] !== null && typeof args[key] === "object") {
       formatterAssign(args[key], formatter);
     } else if (key === "format" && typeof args[key] === "string") {
-      args["formatter"] = formatter[args[key]]
-        ? formatter[args[key]]
-        : undefined;
+      args["formatter"] = formatter[args[key]] ? formatter[args[key]] : undefined;
     }
   }
   return args;
@@ -532,10 +522,7 @@ export default {
     eoptsProps: {
       handler(val, oldval) {
         if (typeof val === "object") {
-          if (
-            JSON.stringify(val) !== JSON.stringify(oldval) &&
-            this.echarts === true
-          ) {
+          if (JSON.stringify(val) !== JSON.stringify(oldval) && this.echarts === true) {
             this.checkData(this.drawData);
           }
         } else {
@@ -580,13 +567,7 @@ export default {
       }
     },
     errorMessage(val, oldval) {
-      if (
-        val &&
-        this.errorShow &&
-        val !== null &&
-        val !== "null" &&
-        val !== ""
-      ) {
+      if (val && this.errorShow && val !== null && val !== "null" && val !== "") {
         this.showchart = false;
         this.mixinDatacomLoading = false;
         this.mixinDatacomErrorMessage = val;
@@ -689,7 +670,7 @@ export default {
         } else {
           _this.resizeHandler();
         }
-      }, time),
+      }, time)
     );
     // #endif
   },
@@ -759,11 +740,7 @@ export default {
       }
       if (needCategories === true) {
         //如果props中的chartData带有categories，则优先使用chartData的categories
-        if (
-          this.chartData &&
-          this.chartData.categories &&
-          this.chartData.categories.length > 0
-        ) {
+        if (this.chartData && this.chartData.categories && this.chartData.categories.length > 0) {
           tmpcategories = this.chartData.categories;
         } else {
           let tempckey = {};
@@ -815,10 +792,7 @@ export default {
             for (let j = 0; j < tmpcategories.length; j++) {
               let seriesdata = 0;
               for (let i = 0; i < resdata.length; i++) {
-                if (
-                  tmpseries[k].name == resdata[i].group &&
-                  resdata[i].text == tmpcategories[j]
-                ) {
+                if (tmpseries[k].name == resdata[i].group && resdata[i].text == tmpcategories[j]) {
                   seriesdata = resdata[i].value;
                 }
               }
@@ -885,9 +859,7 @@ export default {
     resizeHandler() {
       //渲染防抖
       let currTime = Date.now();
-      let lastDrawTime = this.lastDrawTime
-        ? this.lastDrawTime
-        : currTime - 3000;
+      let lastDrawTime = this.lastDrawTime ? this.lastDrawTime : currTime - 3000;
       let duration = currTime - lastDrawTime;
       if (duration < 1000) return;
       let chartdom = uni
@@ -911,12 +883,7 @@ export default {
       if (this.echarts !== true && cfu.option[cid] && cfu.option[cid].context) {
         const ctx = cfu.option[cid].context;
         if (typeof ctx === "object" && !cfu.option[cid].update) {
-          ctx.clearRect(
-            0,
-            0,
-            this.cWidth * this.pixel,
-            this.cHeight * this.pixel,
-          );
+          ctx.clearRect(0, 0, this.cWidth * this.pixel, this.cHeight * this.pixel);
           ctx.draw();
         }
       }
@@ -937,8 +904,7 @@ export default {
             this.cWidth = data.width;
             this.cHeight = data.height;
             if (this.echarts !== true) {
-              cfu.option[cid].background =
-                this.background == "none" ? "#FFFFFF" : this.background;
+              cfu.option[cid].background = this.background == "none" ? "#FFFFFF" : this.background;
               cfu.option[cid].canvas2d = this.type2d;
               cfu.option[cid].pixelRatio = this.pixel;
               cfu.option[cid].animation = this.animation;
@@ -1010,8 +976,7 @@ export default {
                       } else {
                         this.showchart = false;
                         this.mixinDatacomErrorMessage =
-                          "参数错误：开启2d模式后，未获取到dom节点，canvas-id:" +
-                          cid;
+                          "参数错误：开启2d模式后，未获取到dom节点，canvas-id:" + cid;
                       }
                     });
                 } else {
@@ -1019,11 +984,7 @@ export default {
                     cfu.option[cid].rotateLock = cfu.option[cid].rotate;
                   }
                   cfu.option[cid].context = uni.createCanvasContext(cid, this);
-                  if (
-                    cfu.instance[cid] &&
-                    cfu.option[cid] &&
-                    cfu.option[cid].update === true
-                  ) {
+                  if (cfu.instance[cid] && cfu.option[cid] && cfu.option[cid].update === true) {
                     this._updataUChart(cid);
                   } else {
                     setTimeout(() => {
@@ -1039,8 +1000,7 @@ export default {
             this.mixinDatacomLoading = false;
             this.showchart = false;
             if (this.reshow == true) {
-              this.mixinDatacomErrorMessage =
-                "布局错误：未获取到父元素宽高尺寸！canvas-id:" + cid;
+              this.mixinDatacomErrorMessage = "布局错误：未获取到父元素宽高尺寸！canvas-id:" + cid;
             }
           }
         })
@@ -1071,7 +1031,7 @@ export default {
             //#endif
           },
         },
-        this,
+        this
       );
     },
     getImage() {
@@ -1086,7 +1046,7 @@ export default {
               });
             },
           },
-          this,
+          this
         );
       } else {
         const query = uni.createSelectorQuery().in(this);
@@ -1184,12 +1144,7 @@ export default {
               typeof cfu.option[cid].tooltipFormat === "string" &&
               cfu.formatter[cfu.option[cid].tooltipFormat]
             ) {
-              return cfu.formatter[cfu.option[cid].tooltipFormat](
-                item,
-                category,
-                index,
-                opts,
-              );
+              return cfu.formatter[cfu.option[cid].tooltipFormat](item, category, index, opts);
             } else {
               return this._tooltipDefault(item, category, index, opts);
             }
@@ -1202,12 +1157,7 @@ export default {
               typeof cfu.option[cid].tooltipFormat === "string" &&
               cfu.formatter[cfu.option[cid].tooltipFormat]
             ) {
-              return cfu.formatter[cfu.option[cid].tooltipFormat](
-                item,
-                category,
-                index,
-                opts,
-              );
+              return cfu.formatter[cfu.option[cid].tooltipFormat](item, category, index, opts);
             } else {
               return this._tooltipDefault(item, category, index, opts);
             }
@@ -1331,10 +1281,7 @@ export default {
       let touchMoveLimit = cfu.option[cid].touchMoveLimit || 24;
       if (duration < Math.floor(1000 / touchMoveLimit)) return; //每秒60帧
       lastMoveTime = currMoveTime;
-      if (
-        cfu.option[cid].enableScroll === true &&
-        e.changedTouches.length == 1
-      ) {
+      if (cfu.option[cid].enableScroll === true && e.changedTouches.length == 1) {
         cfu.instance[cid].scroll(e);
       }
       if (
