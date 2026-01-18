@@ -1,20 +1,17 @@
 # FastApp - 移动端跨平台应用
 
 <div align="center">
+<img src="https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/logo.png" width="150" height="150" alt="logo" />
 
-![FastApp](https://img.shields.io/badge/FastApp-3.14.0-blue.svg)
-![Vue](https://img.shields.io/badge/Vue-3.5.22-green.svg)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue.svg)
-![uni-app](https://img.shields.io/badge/uni--app-3.0.0-orange.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+<img src="https://img.shields.io/badge/FastApp-3.14.0-blue.svg" alt="FastApp">
+<img src="https://img.shields.io/badge/Vue-3.5.22-green.svg" alt="Vue">
+<img src="https://img.shields.io/badge/TypeScript-5.9.2-blue.svg" alt="TypeScript">
+<img src="https://img.shields.io/badge/uni--app-3.0.0-orange.svg" alt="uni-app">
+<img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
 
-**基于 uni-app + Vue 3 + TypeScript 的现代化移动端跨平台开发模板**
-
-[功能特性](#-功能特性) • [快速开始](#-快速开始) • [项目结构](#-项目结构) • [开发指南](#-开发指南)
+<h2>FastApp 基于 uni-app + Vue 3 + TypeScript 的现代化移动端跨平台开发模板</h2>
 
 </div>
-
----
 
 ## 📖 项目介绍
 
@@ -40,8 +37,8 @@ FastApp 是 FastapiAdmin 项目的移动端应用，基于 uni-app 框架开发�
 
 | 模块     | 详情                                                                                       | 模块     | 详情                                                                                   | 模块       | 详情                                                                                    |
 | -------- | ------------------------------------------------------------------------------------------ | -------- | -------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------------------------------------------- |
-| **登录** | ![移动端登录](https://gitee.com/fastapiadmin/FastDocs/raw/main/src/public/app_login.png)       | **首页** | ![移动端首页](https://gitee.com/fastapiadmin/FastDocs/raw/main/src/public/app_home.png)    | **我的**   | ![移动端个人中心](https://gitee.com/fastapiadmin/FastDocs/raw/main/src/public/app_mine.png) |
-| **个人** | ![移动端个人信息](https://gitee.com/fastapiadmin/FastDocs/raw/main/src/public/app_profile.png) | **设置** | ![移动端设置](https://gitee.com/fastapiadmin/FastDocs/raw/main/src/public/app_setting.png) | **工作台** | ![移动端工作台](https://gitee.com/fastapiadmin/FastDocs/raw/main/src/public/app_work.png)   |
+| **登录** | ![移动端登录](https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/app_login.png)       | **首页** | ![移动端首页](https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/app_home.png)    | **我的**   | ![移动端个人中心](https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/app_mine.png) |
+| **个人** | ![移动端个人信息](https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/app_profile.png) | **设置** | ![移动端设置](https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/app_setting.png) | **工作台** | ![移动端工作台](https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/app_work.png)   |
 
 ## ✨ 功能特性
 
@@ -305,6 +302,14 @@ proxy: {
 - [uni-app](https://uniapp.dcloud.net.cn/) - 跨平台应用开发框架
 - [Vue 3](https://cn.vuejs.org/) - 渐进式 JavaScript 框架
 - [Vite](https://cn.vitejs.dev/) - 下一代前端构建工具
+
+---
+
+## 🎨 社区交流
+
+| 群组二维码 | 微信支付二维码 |
+| --- | --- |
+| ![群组二维码](https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/group.jpg) | ![微信支付二维码](https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/wechatPay.jpg) |
 
 ---
 
